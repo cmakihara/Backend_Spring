@@ -35,10 +35,12 @@ public class ContatoController {
     public ResponseEntity<Contato> getContatoById
     			(@PathVariable(value = "id") Long contatoId) {
         Contato contato = contatoRepository.findOne(contatoId);
+        
         if(contato == null) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok().body(contato);
+        
     }
     
     @PostMapping("/agenda")
