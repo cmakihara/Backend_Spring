@@ -58,11 +58,6 @@ public class PedidoController {
     public Pedido putPedido(@PathVariable(value = "id_pedido") Long PedidoId,@Valid @RequestBody Pedido Pedido) {
         return PedidoRepository.save(Pedido);
     }
-
-
-
-
-	
-	
+    
 	
 }

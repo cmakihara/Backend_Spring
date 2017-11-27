@@ -7,7 +7,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -18,21 +20,13 @@ public class Pedido {
 	@Id
 	@Column(name = "id_pedido")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Long id;
+	private Long id_pedido;
 	private int valor_total;
 	private int qtd_produto;
 	
-	@ManyToOne(targetEntity = Contato.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private int id_contato;
 	
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
+	@ManyToOne(targetEntity = Contato.class, cascade = CascadeType.ALL)
+	private Contato contato;
 
 	public int getValor_total() {
 		return valor_total;
@@ -48,6 +42,22 @@ public class Pedido {
 
 	public void setQtd_produto(int qtd_produto) {
 		this.qtd_produto = qtd_produto;
+	}
+
+	public Long getId_pedido() {
+		return id_pedido;
+	}
+
+	public void setId_pedido(Long id_pedido) {
+		this.id_pedido = id_pedido;
+	}
+
+	public Contato getContato() {
+		return contato;
+	}
+
+	public void setContato(Contato contato) {
+		this.contato = contato;
 	}
 	
 }

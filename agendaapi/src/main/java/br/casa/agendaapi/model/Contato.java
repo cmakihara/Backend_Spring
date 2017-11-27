@@ -13,11 +13,10 @@ import org.hibernate.validator.constraints.NotBlank;
 @Table(name = "contato")
 public class Contato {
 
-	
 	@Id
 	@Column(name = "id_contato")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Long id_contato;
+	private long id_contato;
 	
 	@NotBlank
 	private String nome;
@@ -28,12 +27,7 @@ public class Contato {
 	
 	
 	
-	public Long getId() {
-		return id_contato;
-	}
-	public void setId(Long id) {
-		this.id_contato = id;
-	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -63,6 +57,12 @@ public class Contato {
 	}
 	public void setCelular(String celular) {
 		this.celular = celular;
+	}
+	public long getId_contato() {
+		return id_contato;
+	}
+	public void setId_contato(long id_contato) {
+		this.id_contato = id_contato;
 	}
 	
 	
