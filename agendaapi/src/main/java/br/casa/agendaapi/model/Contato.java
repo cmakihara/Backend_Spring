@@ -1,5 +1,6 @@
 package br.casa.agendaapi.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,8 +15,9 @@ public class Contato {
 
 	
 	@Id
+	@Column(name = "id_contato")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Long id;
+	private Long id_contato;
 	
 	@NotBlank
 	private String nome;
@@ -27,10 +29,10 @@ public class Contato {
 	
 	
 	public Long getId() {
-		return id;
+		return id_contato;
 	}
 	public void setId(Long id) {
-		this.id = id;
+		this.id_contato = id;
 	}
 	public String getNome() {
 		return nome;
