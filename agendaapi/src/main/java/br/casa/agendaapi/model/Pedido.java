@@ -27,6 +27,9 @@ public class Pedido {
 	
 	@ManyToOne(targetEntity = Contato.class, cascade = CascadeType.ALL)
 	private Contato contato;
+	
+	@ManyToOne(targetEntity = Usuario.class, cascade = CascadeType.ALL)
+	private Usuario usuario;
 
 	public int getValor_total() {
 		return valor_total;
@@ -58,6 +61,14 @@ public class Pedido {
 
 	public void setContato(Contato contato) {
 		this.contato = contato;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	
 }
