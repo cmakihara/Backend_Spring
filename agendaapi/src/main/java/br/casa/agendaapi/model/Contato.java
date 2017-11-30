@@ -24,9 +24,6 @@ public class Contato {
 	private String endereco;
 	private String email;
 	private String celular;
-	
-	
-	
 
 	public String getNome() {
 		return nome;
