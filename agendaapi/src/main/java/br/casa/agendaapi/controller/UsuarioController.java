@@ -25,42 +25,42 @@ import br.casa.agendaapi.repository.UsuarioRepository;
 public class UsuarioController {
 
 	@Autowired
-    UsuarioRepository UsuarioRepository;
+    UsuarioRepository usuarioRepository;
 
     @GetMapping("/usuario")
     public List<Usuario> getAllUsuarios() {
-        return UsuarioRepository.findAll();
+        return usuarioRepository.findAll();
         
     }
     
     
     @GetMapping("/usuario/{id}")
     public ResponseEntity<Usuario> getUsuarioById
-    			(@PathVariable(value = "id") Long UsuarioId) {
-        Usuario Usuario = UsuarioRepository.findOne(UsuarioId);
+    			(@PathVariable(value = "id") Long usuarioId) {
+        Usuario usuario = usuarioRepository.findOne(usuarioId);
         
-        if(Usuario == null) {
+        if(usuario == null) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok().body(Usuario);
+        return ResponseEntity.ok().body(usuario);
         
     }
     
     @PostMapping("/usuario")
-    public Usuario createUsuario(@Valid @RequestBody Usuario Usuario) {
-        return UsuarioRepository.save(Usuario);
+    public Usuario createUsuario(@Valid @RequestBody Usuario usuario) {
+        return usuarioRepository.save(usuario);
     }
     
     
     @DeleteMapping("/usuario/{id}")
     public ResponseEntity<Usuario> deleteUsuario(@PathVariable(value = "id") Long UsuarioId) {
-    	UsuarioRepository.delete(UsuarioId);
+    	usuarioRepository.delete(UsuarioId);
     	return null;
     }
     
     @PutMapping("/usuario/{id}")
-    public Usuario putUsuario(@PathVariable(value = "id") Long UsuarioId,@Valid @RequestBody Usuario Usuario) {
-        return UsuarioRepository.save(Usuario);
+    public Usuario putUsuario(@PathVariable(value = "id") Long UsuarioId,@Valid @RequestBody Usuario usuario) {
+        return usuarioRepository.save(usuario);
     }
 
 

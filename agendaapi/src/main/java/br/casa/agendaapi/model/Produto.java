@@ -1,5 +1,6 @@
 package br.casa.agendaapi.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,11 +13,13 @@ import org.hibernate.validator.constraints.NotBlank;
 @Table(name = "produto")
 public class Produto {
 	
+	
 	@Id
+	@Column(name = "id_produto")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Long id;
+	private long id_produto;
 	
-	
+	@NotBlank
 	private String nome;
 	private String tipo;
 	private String valor;
@@ -48,6 +51,12 @@ public class Produto {
 	}
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
+	}
+	public long getId_produto() {
+		return id_produto;
+	}
+	public void setId_produto(long id_produto) {
+		this.id_produto = id_produto;
 	}
 
 }

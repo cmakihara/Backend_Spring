@@ -30,6 +30,12 @@ public class Usuario {
 	
 	
 
+	public long getId_usuario() {
+		return id_usuario;
+	}
+	public void setId_usuario(long id_usuario) {
+		this.id_usuario = id_usuario;
+	}
 	public String getNome() {
 		return nome;
 	}

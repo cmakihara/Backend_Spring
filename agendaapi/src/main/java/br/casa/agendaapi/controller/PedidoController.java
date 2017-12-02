@@ -23,40 +23,40 @@ import br.casa.agendaapi.repository.PedidoRepository;
 public class PedidoController {
 
 	@Autowired
-    PedidoRepository PedidoRepository;
+    PedidoRepository pedidoRepository;
 
     @GetMapping("/pedido")
     public List<Pedido> getAllPedidos() {
-        return PedidoRepository.findAll();
+        return pedidoRepository.findAll();
     }
     
     
     @GetMapping("/pedido/{id}")
     public ResponseEntity<Pedido> getPedidoById
-    			(@PathVariable(value = "id_pedido") Long PedidoId) {
-        Pedido Pedido = PedidoRepository.findOne(PedidoId);
+    			(@PathVariable(value = "id") Long pedidoId) {
+        Pedido pedido = pedidoRepository.findOne(pedidoId);
         
-        if(Pedido == null) {
+        if(pedido == null) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok().body(Pedido);
+        return ResponseEntity.ok().body(pedido);
         
     }
     
     @PostMapping("/pedido")
-    public Pedido createPedido(@Valid @RequestBody Pedido Pedido) {
-        return PedidoRepository.save(Pedido);
+    public Pedido createPedido(@Valid @RequestBody Pedido pedido) {
+        return pedidoRepository.save(pedido);
     }
     
     
     @DeleteMapping("/pedido/{id}")
-    public ResponseEntity<Pedido> deletePedido(@PathVariable(value = "id_pedido") Long PedidoId) {
-    	PedidoRepository.delete(PedidoId);
+    public ResponseEntity<Pedido> deletePedido(@PathVariable(value = "id") Long pedidoId) {
+    	pedidoRepository.delete(pedidoId);
     	return null;
     }
     @PutMapping("/pedido/{id}")
-    public Pedido putPedido(@PathVariable(value = "id_pedido") Long PedidoId,@Valid @RequestBody Pedido Pedido) {
-        return PedidoRepository.save(Pedido);
+    public Pedido putPedido(@PathVariable(value = "id") Long pedidoId,@Valid @RequestBody Pedido pedido) {
+        return pedidoRepository.save(pedido);
     }
     
 	

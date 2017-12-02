@@ -24,39 +24,39 @@ import br.casa.agendaapi.repository.ProdutoRepository;
 public class ProdutoController {
 
 	@Autowired
-    ProdutoRepository ProdutoRepository;
+    ProdutoRepository produtoRepository;
 
     @GetMapping("/produto")
     public List<Produto> getAllProdutos() {
-        return ProdutoRepository.findAll();
+        return produtoRepository.findAll();
     }
     
     
     @GetMapping("/produto/{id}")
     public ResponseEntity<Produto> getProdutoById
-    			(@PathVariable(value = "id") Long ProdutoId) {
-    	Produto Produto = ProdutoRepository.findOne(ProdutoId);
-        if(Produto == null) {
+    			(@PathVariable(value = "id") Long produtoId) {
+    	Produto produto = produtoRepository.findOne(produtoId);
+        if(produto == null) {
             return ResponseEntity.notFound().build();
         }
-        System.out.println(ResponseEntity.ok().body(Produto));
-        return ResponseEntity.ok().body(Produto);
+       
+        return ResponseEntity.ok().body(produto);
     }
     
     @PostMapping("/produto")
-    public Produto createProduto(@Valid @RequestBody Produto Produto) {
-        return ProdutoRepository.save(Produto);
+    public Produto createProduto(@Valid @RequestBody Produto produto) {
+        return produtoRepository.save(produto);
     }
     
     
     @DeleteMapping("/produto/{id}")
-    public ResponseEntity<Produto> deleteProduto(@PathVariable(value = "id") Long ProdutoId) {
-    	ProdutoRepository.delete(ProdutoId);
+    public ResponseEntity<Produto> deleteProduto(@PathVariable(value = "id") Long produtoId) {
+    	produtoRepository.delete(produtoId);
     	return null;
     }
     @PutMapping("/produto/{id}")
-    public Produto putProduto(@PathVariable(value = "id") Long ProdutoId,@Valid @RequestBody Produto Produto) {
-        return ProdutoRepository.save(Produto);
+    public Produto putProduto(@PathVariable(value = "id") Long produtoId,@Valid @RequestBody Produto produto) {
+        return produtoRepository.save(produto);
     }
 
 
