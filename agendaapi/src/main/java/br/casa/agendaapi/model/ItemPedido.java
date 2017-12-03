@@ -18,7 +18,7 @@ public class ItemPedido {
 	@Id
 	@Column(name = "id_itempedido")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Long id;
+	private Long id_itempedido;
 	
 	
 	private String nome;
@@ -68,6 +68,13 @@ public class ItemPedido {
 	public void setPedido(Pedido pedido) {
 		this.pedido = pedido;
 	}
+	public Long getId_itempedido() {
+		return id_itempedido;
+	}
+	public void setId_itempedido(Long id_itempedido) {
+		this.id_itempedido = id_itempedido;
+	}
+	
 	
 	
 }
