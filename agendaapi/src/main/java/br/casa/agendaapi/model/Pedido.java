@@ -22,14 +22,9 @@ public class Pedido {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id_pedido;
 	private int valor_total;
-	private int qtd_produto;
-	
-	
-	@ManyToOne(targetEntity = Contato.class, cascade = CascadeType.ALL)
-	private Contato contato;
-	
-	@ManyToOne(targetEntity = Usuario.class, cascade = CascadeType.ALL)
-	private Usuario usuario;
+	private int qtd_produto;	
+	private String contato;	
+	private String usuario;
 
 	public int getValor_total() {
 		return valor_total;
@@ -55,20 +50,22 @@ public class Pedido {
 		this.id_pedido = id_pedido;
 	}
 
-	public Contato getContato() {
+	public String getContato() {
 		return contato;
 	}
 
-	public void setContato(Contato contato) {
+	public void setContato(String contato) {
 		this.contato = contato;
 	}
 
-	public Usuario getUsuario() {
+	public String getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(Usuario usuario) {
+	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
+
+	
 	
 }

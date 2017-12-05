@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.casa.agendaapi.model.ItemPedido;
 import br.casa.agendaapi.model.Pedido;
+import br.casa.agendaapi.model.Usuario;
 import br.casa.agendaapi.repository.ItemPedidoRepository;
 
 @RestController
@@ -33,7 +35,7 @@ public class ItemPedidoController {
         return itemPedidoRepository.findAll();
     }
     @GetMapping("/itempedido/{id}")
-    public ResponseEntity<ItemPedido> getPedidoById
+    public ResponseEntity<ItemPedido> getItemPedidoById
     			(@PathVariable(value = "id") Long itempedidoId) {
         ItemPedido itempedido = itemPedidoRepository.findOne(itempedidoId);
         
@@ -42,6 +44,11 @@ public class ItemPedidoController {
         }
         return ResponseEntity.ok().body(itempedido);
         
+    }
+    @DeleteMapping("/itempedido/{id}")
+    public ResponseEntity<ItemPedido> deleteItemPedido(@PathVariable(value = "id") Long itempedidoId) {
+    	itemPedidoRepository.delete(itempedidoId);
+    	return null;
     }
 
 }
