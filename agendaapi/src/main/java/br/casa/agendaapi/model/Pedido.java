@@ -1,5 +1,7 @@
 package br.casa.agendaapi.model;
 
+import java.math.BigDecimal;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,16 +23,16 @@ public class Pedido {
 	@Column(name = "id_pedido")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id_pedido;
-	private int valor_total;
+	private BigDecimal valor_total;
 	private int qtd_produto;	
 	private String contato;	
 	private String usuario;
 
-	public int getValor_total() {
+	public BigDecimal getValor_total() {
 		return valor_total;
 	}
 
-	public void setValor_total(int valor_total) {
+	public void setValor_total(BigDecimal valor_total) {
 		this.valor_total = valor_total;
 	}
 
